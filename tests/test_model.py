@@ -29,24 +29,12 @@ def test_train_model():
     assert train_model(X_rtrain, y_rtrain, 42)
 
 
-def test_inference(model_path, data_test_true):
+def test_inference(model, encoder, lb, data_test_true):
     """
     Tests if inference returns expected values
 
     """
     df_test = pd.DataFrame(data_test_true, index=[0])
-
-    try:
-        model = joblib.load(f'{model_path}/model.pkl')
-        encoder = joblib.load(f'{model_path}/encoder.pkl')
-        lb = joblib.load(f'{model_path}/lb.pkl')
-
-    except FileNotFoundError as e:
-        raise FileNotFoundError(
-            e,
-            "Pickles not founded, try running it from root folder \
-            or changing the path on conftest.py"
-        )
 
     X, _y, _encoder, _lb = process_data(
         df_test,

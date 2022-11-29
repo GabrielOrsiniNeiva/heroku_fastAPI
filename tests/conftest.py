@@ -1,11 +1,7 @@
+import os
+import sys
 import pytest
 import joblib
-
-
-@pytest.fixture(scope='session')
-def model_path(request):
-    model_path = './model'
-    return model_path
 
 
 @pytest.fixture(scope='session')
@@ -56,17 +52,26 @@ def data_test_false(request):
 
 @pytest.fixture(scope='session')
 def encoder(request):
-    encoder = joblib.load('model/encoder.pkl')
+    encoder = joblib.load(
+        f'{os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}/model/encoder.pkl'
+    )
+
     return encoder
 
 
 @pytest.fixture(scope='session')
 def model(request):
-    model = joblib.load('model/model.pkl')
+    model = joblib.load(
+        f'{os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}/model/model.pkl'
+    )
+
     return model
 
 
 @pytest.fixture(scope='session')
 def lb(request):
-    lb = joblib.load('model/lb.pkl')
+    lb = joblib.load(
+        f'{os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}/model/lb.pkl'
+    )
+
     return lb

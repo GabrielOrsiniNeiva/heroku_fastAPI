@@ -5,6 +5,9 @@ Author: Gabriel
 Date: 11/2022
 
 """
+import os
+import sys
+
 import joblib
 import pandas as pd
 from fastapi import FastAPI
@@ -12,9 +15,11 @@ from pydantic import BaseModel, Field
 
 from starter import inference, process_data
 
-encoder = joblib.load('model/encoder.pkl')
-model = joblib.load('model/model.pkl')
-lb = joblib.load('model/lb.pkl')
+file_path = os.path.dirname(os.path.abspath(__file__))
+
+encoder = joblib.load(f'{file_path}/model/encoder.pkl')
+model = joblib.load(f'{file_path}/model/model.pkl')
+lb = joblib.load(f'{file_path}/model/lb.pkl')
 
 
 class Data(BaseModel):
