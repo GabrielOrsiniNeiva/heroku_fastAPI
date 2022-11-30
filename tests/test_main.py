@@ -1,10 +1,10 @@
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 import json
+
 from fastapi.testclient import TestClient
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from main import app
 
 client = TestClient(app)
@@ -17,7 +17,7 @@ def test_root():
 
 
 def test_model_inference_true(data_test_true):
-    
+
     data_pop = data_test_true.copy()
     data_pop.pop('salary', None)
 
@@ -31,7 +31,7 @@ def test_model_inference_true(data_test_true):
 
 
 def test_model_inference_false(data_test_false):
-    
+
     data_pop = data_test_false.copy()
     data_pop.pop('salary', None)
 

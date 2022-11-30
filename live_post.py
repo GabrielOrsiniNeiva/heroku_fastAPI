@@ -16,10 +16,10 @@ data_test = {
     'capital-loss': 0,
     'hours-per-week': 55,
     'native-country': 'United-States'
-    }
+}
 
 r = requests.post(
-    'https://gabrors-udacity-api.herokuapp.com/model_inference', 
+    'https://gabrors-udacity-api.herokuapp.com/model_inference',
     data=json.dumps(data_test)
 )
 

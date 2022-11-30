@@ -6,7 +6,6 @@ Date: 11/2022
 
 """
 import os
-import sys
 
 import joblib
 import pandas as pd

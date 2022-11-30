@@ -1,5 +1,4 @@
 import os
-import sys
 import pytest
 import joblib
 
@@ -22,7 +21,7 @@ def data_test_true(request):
         'hours-per-week': 55,
         'native-country': 'United-States',
         'salary': '<=50K'
-        }
+    }
 
     return data_test_true
 
@@ -45,7 +44,7 @@ def data_test_false(request):
         'hours-per-week': 40,
         'native-country': 'United-States',
         'salary': '>50K'
-        }
+    }
 
     return data_test_false
 

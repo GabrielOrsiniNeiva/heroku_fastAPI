@@ -6,12 +6,11 @@ Date: 11/2022
 """
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import joblib
 import numpy as np
 import pandas as pd
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from starter.data import process_data
 from starter.model import inference, train_model
 
