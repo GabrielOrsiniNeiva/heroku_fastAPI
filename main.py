@@ -37,6 +37,26 @@ class Data(BaseModel):
     capital_loss:   int = Field(alias="capital-loss")
     hours_per_week: int = Field(alias="hours-per-week")
     native_country: str = Field(alias="native-country")
+    
+    class Config:
+        schema_extra = {
+            "example": {
+                'age': 45,
+                'workclass': 'State-gov',
+                'fnlgt': 50567,
+                'education': 'HS-grad',
+                'education-num': 9,
+                'marital-status': 'Married-civ-spouse',
+                'occupation': 'Exec-managerial',
+                'relationship': 'Wife',
+                'race': 'White',
+                'sex': 'Female',
+                'capital-gain': 0,
+                'capital-loss': 0,
+                'hours-per-week': 40,
+                'native-country': 'United-States'
+            }
+        }
 
 
 app = FastAPI()
@@ -65,7 +85,7 @@ async def model_inference(data: Data):
     # Getting inference
     pred = inference(model, X_input)
 
-    if pred[0] == 1:
+    if pred == 1:
         pred = "Salary > 50k"
     else:
         pred = "Salary <= 50k"
