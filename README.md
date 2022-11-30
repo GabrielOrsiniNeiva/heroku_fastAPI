@@ -6,6 +6,6 @@ Date: 11/2022
 
 **My Github:** https://github.com/GabrielOrsiniNeiva/heroku_fastAPI <br>
 **Original Github:** https://github.com/udacity/nd0821-c3-starter-code
-## License
 
+## License
 [License](LICENSE.txt)
